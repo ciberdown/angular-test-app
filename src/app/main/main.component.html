@@ -1,28 +1,28 @@
-<div class="main-container">
-  <h3>add new servers or blueprints</h3>
-  <app-input-section [text]="'server name'" [(inputValue)]="sNameInputValue" />
-  <app-input-section
-    [text]="'server content'"
-    [(inputValue)]="sContentInputValue"
-  />
+<div>
+  <app-input text="add server name: ">
+    <input
+      [(ngModel)]="inputNameValue"
+      type="text"
+      placeholder="add server..."
+    />
+  </app-input>
+  <app-input text="add server content: ">
+    <input
+      [(ngModel)]="inputContentValue"
+      type="text"
+      placeholder="add server..."
+    />
+  </app-input>
 
-  <section>
-    <button
-      (click)="addNameServer()"
-      [disabled]="this.sNameInputValue.length === 0"
-    >
-      Add Server
-    </button>
-    <button
-      (click)="addContentServer()"
-      [disabled]="this.sContentInputValue.length === 0"
-    >
-      Add Content
-    </button>
-  </section>
+  <button [disabled]="inputNameValue.length === 0" (click)="addServerHandle()">
+    add server
+  </button>
   <hr />
-  <app-output-section
-    *ngFor="let object of servers; let i = index"
-    [data]="object"
-  />
+  <div class="servers-output">
+    <app-output
+      *ngFor="let server of servers; let i = index"
+      [server]="server"
+      [index]="i"
+    />
+  </div>
 </div>

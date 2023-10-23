@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-interface Server {
-  type: 'name' | 'content';
-  text: string;
-}
 
 @Component({
   selector: 'app-main',
@@ -10,29 +6,24 @@ interface Server {
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
-  servers: Server[] = [];
-  sNameInputValue: string = '';
-  sContentInputValue: string = '';
+  servers: Server[] = [{name:'some server',content:'asdf sdfdfgh hdfgh gfhosad sdf iudskfh kjdf ghaksdfgh k . fkg jhskgh '}];
+  inputNameValue: string = '';
+  inputContentValue: string = '';
 
-  addNameServer() {
-    const obj: Server = {
-      text: this.sNameInputValue,
-      type: 'name',
-    };
-    this.servers.push(obj);
-    this.sNameInputValue = '';
-    console.log(this.servers);
-    return obj;
+  addServerHandle() {
+    this.servers.push(this.getServerFromInput());
+    this.cleaInputs();
   }
-  addContentServer() {
-    const obj: Server = {
-      text: this.sContentInputValue,
-      type: 'content',
-    };
-    this.servers.push(obj);
-    this.sContentInputValue = '';
-    return obj;
+  getServerFromInput() {
+    return { name: this.inputNameValue, content: this.inputContentValue };
   }
+  cleaInputs() {
+    this.inputContentValue = '';
+    this.inputNameValue = '';
+  }
+}
 
-
+interface Server {
+  name: string;
+  content: string;
 }

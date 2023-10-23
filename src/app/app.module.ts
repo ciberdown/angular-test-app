@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
-import { InputSectionComponent } from './main/input-section/input-section.component';
-import { OutputSectionComponent } from './main/output-section/output-section.component';
+import { InputComponent } from './main/input/input.component';
+import { OutputComponent } from './main/output/output.component';
 @NgModule({
-  declarations: [AppComponent, MainComponent, InputSectionComponent, OutputSectionComponent],
+  declarations: [AppComponent, MainComponent, InputComponent, OutputComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

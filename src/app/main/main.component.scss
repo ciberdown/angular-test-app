@@ -1,12 +1,12 @@
-.main-container {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
+.servers-output {
+  display: grid;
   gap: 20px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(250, 235, 215, 0.224);
+  border-radius: 10px;
+  min-height: 400px;
+  row-gap: 10px;
 }
-
-.main-container button {
-  padding: 10px;
-  margin-inline: 10px;
-}
-
