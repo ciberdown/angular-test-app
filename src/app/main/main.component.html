@@ -17,9 +17,11 @@
   <button [disabled]="inputNameValue.length === 0" (click)="addServerHandle()">
     add server
   </button>
+  <input #myRef />
   <hr />
   <div class="servers-output">
     <app-output
+      (removeBtnClicked)="recieveData($event)"
       *ngFor="let server of servers; let i = index"
       [server]="server"
       [index]="i"

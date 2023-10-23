@@ -12,3 +12,21 @@
 .content {
   border-radius: 2px;
 }
+div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    border: none;
+    background-color: red;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: black;
+      color: red;
+    }
+  }
+}
