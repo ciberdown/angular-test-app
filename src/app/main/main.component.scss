@@ -1,3 +1,7 @@
+.container {
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+}
 .servers-output {
   display: grid;
   gap: 20px;
@@ -9,4 +13,30 @@
   border-radius: 10px;
   min-height: 400px;
   row-gap: 10px;
+  box-shadow: 2px 2px 20px grey;
+}
+input {
+  padding: 10px;
+  min-width: 300px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.141);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 10px grey;
+  margin-top: 5px;
+}
+button {
+  border: none;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px grey;
+  &:hover {
+    transform: translate(1px, 1px);
+    box-shadow: none;
+  }
 }
