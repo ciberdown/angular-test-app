@@ -14,10 +14,8 @@
     />
   </app-input>
 
-  <button [disabled]="inputNameValue.length === 0" (click)="addServerHandle()">
-    add server
-  </button>
-  <input #myRef />
+  <button (click)="addServerHandle()">add server</button>
+  <h1 class="warning" *ngIf="this.showWarning">please add a server name</h1>
   <hr />
   <div class="servers-output">
     <app-output

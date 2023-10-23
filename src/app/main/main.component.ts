@@ -5,7 +5,6 @@ import {
   OnDestroy,
   OnInit,
   SimpleChanges,
-  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -14,7 +13,6 @@ import {
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, OnChanges, OnDestroy {
-  @ViewChild('myRef', { static: true }) myRef: any;
   servers: Server[] = [
     {
       name: 'some server',
@@ -22,6 +20,7 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
         'asdf sdfdfgh hdfgh gfhosad sdf iudskfh kjdf ghaksdfgh k . fkg jhskgh ',
     },
   ];
+  showWarning: boolean = false;
   inputNameValue: string = '';
   inputContentValue: string = '';
   constructor() {
@@ -34,12 +33,16 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
     console.log('ngOnChanges method called', changes);
   }
   ngOnDestroy(): void {
-    console.log('ngOnDestroy method called');
+    console.log('ngOnDestroy method called in main');
   }
   addServerHandle() {
-    this.servers.push(this.getServerFromInput());
-    this.cleaInputs();
-    this.getInputRef();
+    if (this.inputNameValue.length === 0) {
+      this.showWarningForSecs();
+    } else {
+      this.showWarning = false;
+      this.servers.push(this.getServerFromInput());
+      this.cleaInputs();
+    }
   }
   getServerFromInput() {
     return { name: this.inputNameValue, content: this.inputContentValue };
@@ -49,13 +52,21 @@ export class MainComponent implements OnInit, OnChanges, OnDestroy {
     this.inputNameValue = '';
   }
 
-  getInputRef() {
-    console.log(this.myRef.nativeElement.value);
-    return this.myRef.nativeElement;
-  }
-
   recieveData(data: any) {
     this.servers = this.servers.filter((server, index) => index !== data);
+  }
+  showWarningForSecs() {
+    this.toggleShowWarning(true);
+    setTimeout(() => {
+      this.toggleShowWarning(false);
+    }, 2000);
+  }
+  toggleShowWarning(bool: boolean | undefined = undefined) {
+    if (bool) {
+      this.showWarning = bool;
+    } else {
+      this.showWarning = !this.showWarning;
+    }
   }
 }
 
